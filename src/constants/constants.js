@@ -6,7 +6,7 @@ const onboarding = [
             
             `Améliorez vos compétences en communication quotidienne grâce à des simulations interactives. 
             `,
-        image: require("../assets/images/onboarding/01.png"),
+        image: require("../assets/images/onboarding/Chatcuate.png"),
     },
     {
         id: "2",
@@ -14,7 +14,7 @@ const onboarding = [
         description:
              `  Pratiquez des scénarios de rencontre et  de relation pour gagner en confiance et en aisance émotionnelle.
              `,
-        image: require("../assets/images/onboarding/02.png"),
+        image: require("../assets/images/onboarding/Chatpana.png"),
     },
     {
         id: "3",
@@ -22,7 +22,7 @@ const onboarding = [
         description:
             `Entraînez-vous pour des entretiens d'embauche, des négociations et des présentations en public.   
             `,
-        image: require("../assets/images/onboarding/03.png"),
+        image: require("../assets/images/onboarding/Conferencerafiki.png"),
     },
      {
         id: "4",
@@ -30,7 +30,7 @@ const onboarding = [
         description:
             ` Participez à des ateliers de développement personnel pour renforcer votre confiance  en vous et vos compétences. .   
             `,
-        image: require("../assets/images/onboarding/03.png"),
+        image: require("../assets/images/onboarding/Stresspana.png"),
     },
     {
         id: "5",
@@ -38,7 +38,7 @@ const onboarding = [
         description:
             `  Utilisez des outils et des programmes spécifiques pour gérer dépression et le burnout
             `,
-        image: require("../assets/images/onboarding/03.png"),
+        image: require("../assets/images/onboarding/Voicechatbro.png"),
     },
 ];
 
