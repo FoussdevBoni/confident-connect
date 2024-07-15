@@ -9,17 +9,17 @@ const Clock = (props) => (
         xmlns="http://www.w3.org/2000/svg"
         {...props}
     >
-        <Circle opacity={0.1} cx={8.5} cy={8.5} r={8.5} fill="#1DBF73" />
+        <Circle opacity={0.1} cx={8.5} cy={8.5} r={8.5} fill="#374f71" />
         <Path
             clipRule="evenodd"
             d="M13.591 8.8a4.8 4.8 0 1 1-9.6 0 4.8 4.8 0 0 1 9.6 0Z"
-            stroke="#1DBF73"
+            stroke="#374f71"
             strokeLinecap="round"
             strokeLinejoin="round"
         />
         <Path
             d="M8.796 5.918v2.877l1.918.959"
-            stroke="#1DBF73"
+            stroke="#374f71"
             strokeLinecap="round"
             strokeLinejoin="round"
         />

@@ -9,7 +9,7 @@ const Card = (props) => (
         xmlns="http://www.w3.org/2000/svg"
         {...props}
     >
-        <Circle cx={15.5} cy={15.5} r={15.5} fill="#1DBF73" />
+        <Circle cx={15.5} cy={15.5} r={15.5} fill="#374f71" />
         <Path
             fillRule="evenodd"
             clipRule="evenodd"

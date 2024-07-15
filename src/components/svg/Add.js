@@ -11,7 +11,7 @@ const Add = (props) => (
     >
         <Path
             d="M8.282 5.5v6m-3-3h6m4.5 0a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"
-            stroke="#8A8D9F"
+            stroke="#a6bbd3"
             strokeLinecap="round"
             strokeLinejoin="round"
         />

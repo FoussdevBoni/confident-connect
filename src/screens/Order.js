@@ -258,7 +258,7 @@ export default function Order() {
                         borderWidth: 1,
                         borderRadius: 10,
                         marginVertical: 18,
-                        borderColor: "#D7D7D7",
+                        borderColor: "#eaeef4",
                         justifyContent: "center",
                         paddingHorizontal: 15,
                     }}

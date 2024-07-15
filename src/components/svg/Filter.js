@@ -12,7 +12,7 @@ const Filter = (props) => (
         <G clipPath="url(#a)">
             <Path
                 d="M14.76 2H1.426L6.76 8.307v4.36L9.426 14V8.307L14.76 2Z"
-                stroke="#8A8D9F"
+                stroke="#a6bbd3"
                 strokeWidth={1.5}
                 strokeLinecap="round"
                 strokeLinejoin="round"

@@ -10,7 +10,7 @@ const Minus = (props) => (
         {...props}
     >
         <G clipPath="url(#a)">
-            <Path d="M3.617 7.947H.541V6.8h3.076v1.148Z" fill="#1DBF73" />
+            <Path d="M3.617 7.947H.541V6.8h3.076v1.148Z" fill="#374f71" />
         </G>
         <Defs>
             <ClipPath id="a">

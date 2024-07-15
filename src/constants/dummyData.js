@@ -73,7 +73,7 @@ const dummyData = [
             {
                 id: 1,
                 tag: "Burger",
-                color: "#FFC700",
+                color: "#7BDFB4",
                 backgroundColor: "#FFFAE7",
             },
             {
@@ -85,7 +85,7 @@ const dummyData = [
             {
                 id: 3,
                 tag: "Fast Food",
-                color: "#1DBF73",
+                color: "#374f71",
                 backgroundColor: "#E8F9F1",
             },
         ],
@@ -117,7 +117,7 @@ const dummyData = [
             {
                 id: 1,
                 tag: "Burger",
-                color: "#FFC700",
+                color: "#7BDFB4",
                 backgroundColor: "#FFFAE7",
             },
             {
@@ -129,7 +129,7 @@ const dummyData = [
             {
                 id: 3,
                 tag: "Fast Food",
-                color: "#1DBF73",
+                color: "#374f71",
                 backgroundColor: "#E8F9F1",
             },
         ],
@@ -161,7 +161,7 @@ const dummyData = [
             {
                 id: 1,
                 tag: "Burger",
-                color: "#FFC700",
+                color: "#7BDFB4",
                 backgroundColor: "#FFFAE7",
             },
             {
@@ -173,7 +173,7 @@ const dummyData = [
             {
                 id: 3,
                 tag: "Fast Food",
-                color: "#1DBF73",
+                color: "#374f71",
                 backgroundColor: "#E8F9F1",
             },
         ],
@@ -205,7 +205,7 @@ const dummyData = [
             {
                 id: 1,
                 tag: "Burger",
-                color: "#FFC700",
+                color: "#7BDFB4",
                 backgroundColor: "#FFFAE7",
             },
             {
@@ -217,7 +217,7 @@ const dummyData = [
             {
                 id: 3,
                 tag: "Fast Food",
-                color: "#1DBF73",
+                color: "#374f71",
                 backgroundColor: "#E8F9F1",
             },
         ],
