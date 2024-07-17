@@ -1,51 +1,76 @@
-import { View, Text, SafeAreaView, ScrollView } from "react-native";
-import React from "react";
-import { useNavigation } from "@react-navigation/native";
+import React, { useEffect, useState } from 'react';
+import { View, StyleSheet, FlatList, Animated, Easing, Text } from 'react-native';
+import { enableScreens } from 'react-native-screens';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { onValue, ref } from 'firebase/database';
+import StackAppBarr from '../components/StackAppBar';
+import { database } from '../firebase/firebaseConfig';
+import NotificationItem from '../components/item/NotificationItem';
 
-import {
-    Header,
-    Cancel,
-    NotificationCategory,
-    Wallet,
-    Promo,
-    Accept,
-} from "../components";
-import { SAFEAREAVIEW } from "../constants";
 
-export default function Notifications() {
-    const navigation = useNavigation();
+enableScreens();
 
-    return (
-        <SafeAreaView style={{ ...SAFEAREAVIEW.AndroidSafeArea }}>
-            <Header title="Notifications" onPress={() => navigation.goBack()} />
-            <ScrollView
-                contentContainerStyle={{
-                    paddingHorizontal: 30,
-                    flexGrow: 1,
-                    paddingTop: 37,
-                }}
-            >
-                <NotificationCategory
-                    title="Your Order Cancel"
-                    subtitle="Order #107 has been cancelled"
-                    icon={<Cancel />}
-                />
-                <NotificationCategory
-                    title="Payment"
-                    subtitle="Thank you! Your transaction is com..."
-                    icon={<Wallet />}
-                />
-                <NotificationCategory
-                    title="Promotion"
-                    subtitle="Invite friends - Get 1 coupons"
-                    icon={<Promo />}
-                />
-                <NotificationCategory
-                    title="Your Order Accept"
-                    subtitle="Order #107 has been success..."
-                    icon={<Accept />}
-                />
-            </ScrollView>
-        </SafeAreaView>
-    );
-}
+
+
+
+  
+const NotificationsScreen = ({user}) => {
+   const [notifications , setNotifications] = useState([])
+ const navigation = useNavigation()
+
+     const userId = user.id || user._id
+ 
+  useEffect(()=>{
+    const notificationsRef = ref(database, 'notifications')
+
+    onValue(notificationsRef , (sn)=>{
+      const data = sn.val()
+      if (data) {
+        const dataArray = Object.entries(data).map(([key , value])=>({
+          ...value,
+          id: key
+        }))
+
+        const filtered = dataArray.filter(notification=>(
+          notification?.receivers?.includes(userId)
+        ))
+        setNotifications(filtered)
+      }
+    })
+  },[])
+   
+
+
+  return (
+     <View style={styles.container}>
+        <StackAppBarr title={'Notifications'} goBack={navigation.goBack}/>
+          {
+            notifications.length>0 ? (
+                 <ScrollView style={{padding: 12}}>
+            {
+                notifications&&notifications.map((item)=>{
+                  return (
+                      <NotificationItem text={item?.body} date={item?.date}/>
+                  )
+                })
+            }
+        </ScrollView>
+            ):( <View style={{flex: 1 , justifyContent:'center' , alignItems: 'center'}}>
+                <Text>
+                  Aucune notification
+                </Text>
+            </View>)
+          }
+     </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+  
+  },
+});
+
+export default NotificationsScreen;
