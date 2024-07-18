@@ -2,11 +2,12 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, FlatList, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import StackAppBarr from '../components/StackAppBar';
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { colors } from '../data/colors';
 
 const avatars = [
-  { id: 1, src: {uri: 'https://static.vecteezy.com/ti/vecteur-libre/p3/3483457-avatar-femme-portrait-d-une-jeune-femme-dans-un-style-retro-vectoriel.jpg'} },
-  { id: 2, src: {uri: 'https://static.vecteezy.com/ti/vecteur-libre/p3/10967316-avatar-homme-barbu-gratuit-vectoriel.jpg'} },
+  { id: 1, profile:  'https://static.vecteezy.com/ti/vecteur-libre/p3/3483457-avatar-femme-portrait-d-une-jeune-femme-dans-un-style-retro-vectoriel.jpg'} ,
+  { id: 2, profile: 'https://static.vecteezy.com/ti/vecteur-libre/p3/10967316-avatar-homme-barbu-gratuit-vectoriel.jpg'},
   // Ajouter d'autres avatars ici
 ];
 
@@ -14,6 +15,9 @@ const voices = [
   { id: 1, name: 'Voix 1' },
   { id: 2, name: 'Voix 2' },
   { id: 3, name: 'Voix 3' },
+    { id: 4, name: 'Voix 4' },
+    { id: 4, name: 'Voix 5' },
+
   // Ajouter d'autres voix ici
 ];
 
@@ -24,28 +28,28 @@ const AvatarSelectionScreen = () => {
    const route  = useRoute()
    const {feature} = route.params
 
-  const handleAvatarSelect = (id) => {
-    setSelectedAvatar(id);
+  const handleAvatarSelect = (item) => {
+    setSelectedAvatar(item);
   };
 
   const handleVoiceSelect = (id) => {
     setSelectedVoice(id);
   };
-
+  const navigation = useNavigation()
   const handleConfirm = () => {
-    if (selectedAvatar && avatarName.trim() && selectedVoice) {
-      // Logique de confirmation, comme enregistrer les informations de l'avatar
-      alert(`Avatar: ${selectedAvatar}, Nom: ${avatarName}, Voix: ${selectedVoice}`);
-    } else {
-      alert('Veuillez sélectionner un avatar, entrer un nom et choisir une voix.');
+    const avatar = {
+      name: avatarName ,
+      profile: selectedAvatar.profile,
+
     }
+    navigation.navigate('avatar-created-successful' , {avatar})
   };
 
   const renderAvatarItem = ({ item }) => (
-    <TouchableOpacity onPress={() => handleAvatarSelect(item.id)}>
+    <TouchableOpacity onPress={() => handleAvatarSelect(item)}>
       <Image
-        source={item.src}
-        style={[styles.avatar, selectedAvatar === item.id && styles.selectedAvatar]}
+        source={{uri: item.profile}}
+        style={[styles.avatar, selectedAvatar === item && styles.selectedAvatar]}
       />
     </TouchableOpacity>
   );
@@ -77,13 +81,14 @@ const AvatarSelectionScreen = () => {
       <Text style={styles.subtitle}>Sélectionnez une voix</Text>
       <FlatList
         data={voices}
+        showsHorizontalScrollIndicator={false}
         renderItem={renderVoiceItem}
         keyExtractor={(item) => item.id.toString()}
         horizontal
         contentContainerStyle={styles.voiceContainer}
       />
       <TouchableOpacity style={styles.confirmButton} onPress={handleConfirm}>
-        <Text style={styles.confirmButtonText}>Cliquer mon avatar</Text>
+        <Text style={styles.confirmButtonText}>Créer l'avatar personnalisé</Text>
       </TouchableOpacity>
     </View>
      </View>
@@ -131,6 +136,7 @@ const styles = StyleSheet.create({
   },
   voiceContainer: {
     justifyContent: 'center',
+    flexDirection: 'row'
   },
   voiceButton: {
     padding: 10,
@@ -138,6 +144,7 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderRadius: 5,
     marginHorizontal: 10,
+    height: 50,
   },
   selectedVoiceButton: {
     borderColor: '#007BFF',
@@ -146,9 +153,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   confirmButton: {
-    backgroundColor: '#007BFF',
+    backgroundColor: colors.primary,
     padding: 15,
-    borderRadius: 5,
+    borderRadius: 200,
     alignItems: 'center',
   },
   confirmButtonText: {

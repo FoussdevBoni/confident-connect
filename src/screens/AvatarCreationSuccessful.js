@@ -3,8 +3,12 @@ import React from "react";
 
 import { SuccessTwo, Button } from "../components";
 import { COLORS, FONTS, SAFEAREAVIEW } from "../constants";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
-export default function OrderSuccessful() {
+export default function AvatarCreationSuccessful() {
+    const navigation = useNavigation()
+    const route = useRoute()
+    const {avatar } = route.params
     return (
         <SafeAreaView style={{ ...SAFEAREAVIEW.AndroidSafeArea }}>
             <ScrollView
@@ -28,7 +32,7 @@ export default function OrderSuccessful() {
                         marginBottom: 10,
                     }}
                 >
-                    Order successful!
+                    Avatar créé avec succès
                 </Text>
                 <Text
                     style={{
@@ -39,14 +43,16 @@ export default function OrderSuccessful() {
                         marginBottom: 21,
                     }}
                 >
-                    Your order will be delivered on time. Thank you!
+                   Votre avatar a été créé et personnalisé comme vous le souhaitez
                 </Text>
                 <Button
-                    title="View orders"
+                    onPress={()=>{navigation.navigate('simulation' , {avatar})}}
+                    title="Continuer"
                     containerStyle={{ marginBottom: 15 }}
                 />
                 <Button
-                    title="Continue Shopping"
+                onPress={()=>{navigation.goBack}}
+                    title="Modifier l'avatar"
                     containerStyle={{ backgroundColor: COLORS.lightGreen }}
                     textStyle={{ color: COLORS.green }}
                 />

@@ -46,6 +46,8 @@ import AvatarSelectionScreen from "../screens/CreateAvatar";
 import { useSelector } from "react-redux";
 import User from "./User/User";
 import NotificationsScreen from "../screens/Notifications";
+import Simulation from './../screens/Simulation';
+import AvatarCreationSuccessful from "../screens/AvatarCreationSuccessful";
 
 const Stack = createStackNavigator();
 const getGestureDirection = (route) => {
@@ -93,11 +95,19 @@ export default function Navigation() {
                  <Stack.Screen name="notifications" options={{ headerShown: false }}>
                  {(props) => <NotificationsScreen {...props} user={user} />}
                  </Stack.Screen>
-                  <Stack.Screen name="craete-avatar" options={{ headerShown: false }}>
+                  <Stack.Screen name="create-avatar" options={{ headerShown: false }}>
                  {(props) => <AvatarSelectionScreen {...props} user={user} />}
                  </Stack.Screen>
                   <Stack.Screen name="chat-quiz" options={{ headerShown: false }}>
                  {(props) => <ChatScreen {...props} user={user} />}
+                 </Stack.Screen>
+
+                 <Stack.Screen name="simulation" options={{ headerShown: false }}>
+                 {(props) => <Simulation {...props} user={user} />}
+                 </Stack.Screen>
+
+                  <Stack.Screen name="avatar-created-successful" options={{ headerShown: false }}>
+                 {(props) => <AvatarCreationSuccessful {...props} user={user} />}
                  </Stack.Screen>
 
             

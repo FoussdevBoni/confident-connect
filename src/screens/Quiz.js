@@ -4,6 +4,7 @@ import { View, Text, TextInput, Button, FlatList, StyleSheet, TouchableOpacity }
 import StackAppBarr from '../components/StackAppBar';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Icon } from 'react-native-elements';
+import { colors } from '../data/colors';
 
 const ChatScreen = () => {
      const route  = useRoute()
@@ -72,12 +73,16 @@ const ChatScreen = () => {
       )}
       {step === questions.length - 1 && (
         <View style={styles.simulationButtonContainer}>
-          <Button
-            title="Faire une simulation"
+          <TouchableOpacity
+            style={{backgroundColor: colors.primary , padding: 10 , borderRadius: 18 , width: '80%'}}
             onPress={() => {
               navigation.navigate('create-avatar' , {feature})
             }}
-          />
+          >
+            <Text style={{color: 'white' , textAlign: 'center'}}>
+               Faire une simulation
+            </Text>
+          </TouchableOpacity>
         </View>
       )}
     </View>

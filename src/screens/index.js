@@ -23,7 +23,7 @@ import FAQ from "./FAQ";
 import MyPromocodes from "./MyPromocodes";
 import Category from "./Category";
 import CartIsEmpty from "./CartIsEmpty";
-import OrderSuccessful from "./OrderSuccessful";
+import OrderSuccessful from "./AvatarCreationSuccessful";
 import Filter from "./Filter";
 import BestMeal from "./BestMeal";
 import PaymentMethodOne from "./PaymentMethodOne";
